@@ -101,7 +101,7 @@ Predicted Character
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/AirWrite.git
+git clone https://github.com/ireshi21/AirWrite.git
 cd AirWrite
 ```
 
