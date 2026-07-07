@@ -9,8 +9,8 @@ class HandTracker:
                  detection_confidence=0.7,
                  tracking_confidence=0.7):
 
-        self.cap = cv2.VideoCapture(0)
-
+        self.cap = cv2.VideoCapture(0)  
+        print("Camera opened:", self.cap.isOpened())
         self.mp_hands = mp.solutions.hands
         self.mp_draw = mp.solutions.drawing_utils
 
@@ -65,7 +65,12 @@ class HandTracker:
         cv2.circle(frame, (x, y), 8, (0, 255, 0), -1)
 
         return (x, y)
+    def get_hand(self, results):
 
+        if not results.multi_hand_landmarks:
+            return None
+
+        return results.multi_hand_landmarks[0]
     def release(self):
         self.cap.release()
         cv2.destroyAllWindows()
